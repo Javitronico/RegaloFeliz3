@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RegaloFeliz.Application.Requests.ProductSale
+namespace RegaloFeliz.Application.ProductSales.Queries.GetProductSales
 {
-    internal class UpdateProductSaleRequest
+    internal class GetProductSalesQuery
     {
     }
 }

@@ -1,7 +1,7 @@
-﻿namespace RegaloFeliz.Domain.DTOs.Requests.Product
+﻿namespace RegaloFeliz.Application.Requests.Product
 {
     public class CreateProductRequest
     {
-        public string? Name { get; set; }
+        public string Name { get; set; }
     }
 }

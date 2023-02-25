@@ -1,16 +1,11 @@
 ﻿using MediatR;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using RegaloFeliz.Application.Products.Commands.CreateProduct;
-using RegaloFeliz.Application.Products.Commands.UpdateProduct;
-using RegaloFeliz.Application.Products.Queries.GetProduct;
-using RegaloFeliz.Application.Products.Queries.GetProducts;
 using RegaloFeliz.Application.Requests.Sale;
 using RegaloFeliz.Application.Sales.Commands.CreateSale;
+using RegaloFeliz.Application.Sales.Commands.DeleteSale;
 using RegaloFeliz.Application.Sales.Commands.UpdateSale;
 using RegaloFeliz.Application.Sales.Queries.GetSale;
 using RegaloFeliz.Application.Sales.Queries.GetSales;
-using RegaloFeliz.Domain.DTOs.Requests.Product;
 
 namespace RegaloFeliz.WebApi.Controllers
 {
@@ -26,8 +21,8 @@ namespace RegaloFeliz.WebApi.Controllers
             _mediator = mediator;
         }
 
-        [HttpGet]
-        public async Task<IActionResult> GetSales(long id)
+        [HttpGet("/GetAllSales")]
+        public async Task<IActionResult> GetAllSales()
         {
             var sales = await _mediator.Send(new GetSalesQuery());
 
@@ -36,29 +31,33 @@ namespace RegaloFeliz.WebApi.Controllers
             return Ok(sales);
         }
 
-        [HttpGet("/GetSale/{id}")]
+        [HttpGet("/GetSaleById/{id}")]
         public async Task<IActionResult> GetSale(long id)
         {
             var sale = await _mediator.Send(new GetSaleQuery(id));
 
-            if (sale!= null) return NotFound($"No sale in database with ID: {id}.");
+            if (sale == null) return NotFound($"No sale in database with ID: {id}.");
 
             return Ok(sale);
-
         }
 
-        [HttpPost]
+        [HttpPost("/CreateSale")]
         public async Task<ActionResult> CreateSale([FromBody] CreateSaleRequest request)
         {
-            var sale = await _mediator.Send(new CreateSaleCommand(
-                request.SaleDate,
-                request.TotalAmount));
+            var sale = await _mediator.Send(new CreateSaleCommand(request.SaleDate, request.TotalAmount));
 
             return Ok(sale);
-
         }
 
-        [HttpPut]
+        [HttpDelete("/DeleteSaleById/{id}")]
+        public async Task<IActionResult> DeleteSale(long id)
+        {
+            var sale = await _mediator.Send(new DeleteSaleCommand(id));
+
+            return Ok(sale);
+        }
+
+        [HttpPut("/UpdateSale")]
         public async Task<IActionResult> UpdateSale([FromBody] UpdateSaleRequest request)
         {
             var sale = await _mediator.Send(new UpdateSaleCommand(

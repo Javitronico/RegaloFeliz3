@@ -12,6 +12,6 @@ namespace RegaloFeliz.Application.Sales.Commands.CreateSale
         }
 
         public DateTime SaleDate { get; set; } = DateTime.Now;
-        public float TotalAmount { get; set; } = 0;
+        public float TotalAmount { get; set; }
     }
 }

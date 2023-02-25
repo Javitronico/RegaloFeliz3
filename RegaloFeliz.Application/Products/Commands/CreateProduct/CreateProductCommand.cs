@@ -10,6 +10,8 @@ namespace RegaloFeliz.Application.Products.Commands.CreateProduct
             Name = name;
         }
 
+        public long Id { get; set; }
+
         public string Name { get; set; }
     }
 }

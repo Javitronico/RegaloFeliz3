@@ -6,11 +6,11 @@ namespace RegaloFeliz.Application.Sales.Queries.GetSale
 {
     public class GetSaleQuery : IRequest<GetSaleDto>
     {
-        public GetSaleQuery(long? id)
+        public GetSaleQuery(long id)
         {
             Id = id;
         }
 
-        public long? Id { get; set; }
+        public long Id { get; set; }
     }
 }

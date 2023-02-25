@@ -2,7 +2,7 @@
 
 namespace RegaloFeliz.Application.Products.Commands.CreateProduct
 {
-    public static class UpdateProductCommandExtensions
+    public static class CreateProductCommandExtension
     {
         public static Product CreateProduct(this CreateProductCommand command)
         {

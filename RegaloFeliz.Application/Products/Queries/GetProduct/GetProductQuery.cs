@@ -5,11 +5,11 @@ namespace RegaloFeliz.Application.Products.Queries.GetProduct
 {
     public class GetProductQuery : IRequest<GetProductDto>
     {
-        public GetProductQuery(long? id)
+        public GetProductQuery(long id)
         {
             Id = id;
         }
 
-        public long? Id { get; set; }
+        public long Id { get; set; }
     }
 }

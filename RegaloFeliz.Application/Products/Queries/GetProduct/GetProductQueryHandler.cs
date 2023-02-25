@@ -17,12 +17,10 @@ namespace RegaloFeliz.Application.Products.Queries.GetProduct
         {
             var product = await _dbContext.Products.Where(x => x.Id == request.Id).FirstOrDefaultAsync();
 
-            if (product != null)
-            {
-                var productItem = product.MapTo();
-                return productItem;
-            }
-            return null;
+            if (product == null) { return default; }
+
+            return product.MapTo();
+
         }
     }
 }

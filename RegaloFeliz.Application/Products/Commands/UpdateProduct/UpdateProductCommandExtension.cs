@@ -4,7 +4,7 @@ using RegaloFeliz.Domain.Entities;
 
 namespace RegaloFeliz.Application.Products.Commands.UpdateProduct;
 
-public static class UpdateProductCommandExtensions
+public static class UpdateProductCommandExtension
 {
     public static Product UpdateProduct(this UpdateProductCommand command)
     {

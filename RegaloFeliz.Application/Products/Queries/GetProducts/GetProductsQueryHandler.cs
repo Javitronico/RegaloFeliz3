@@ -16,9 +16,7 @@ namespace RegaloFeliz.Application.Products.Queries.GetProducts
         public async Task<IList<GetProductDto>> Handle(GetProductsQuery request, CancellationToken cancellationToken)
         {
             var products = await _dbContext.Products.ToListAsync();
-
             var productList = new List<GetProductDto>();
-
             foreach (var productItem in products)
             {
                 var product = productItem.MapTo();

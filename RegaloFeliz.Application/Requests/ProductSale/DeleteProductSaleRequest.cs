@@ -1,4 +1,4 @@
-﻿namespace RegaloFeliz.Domain.DTOs.Requests.ProductSale
+﻿namespace RegaloFeliz.Application.Requests.ProductSale
 {
     public class DeleteProductSaleRequest
     {

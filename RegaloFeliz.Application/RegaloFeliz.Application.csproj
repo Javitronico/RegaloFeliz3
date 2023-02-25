@@ -9,10 +9,13 @@
   <ItemGroup>
     <Compile Remove="ProductoVenta\**" />
     <Compile Remove="Product\**" />
+    <Compile Remove="Requests\ProductSale\**" />
     <EmbeddedResource Remove="ProductoVenta\**" />
     <EmbeddedResource Remove="Product\**" />
+    <EmbeddedResource Remove="Requests\ProductSale\**" />
     <None Remove="ProductoVenta\**" />
     <None Remove="Product\**" />
+    <None Remove="Requests\ProductSale\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -26,8 +29,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Products\Commands\CreateProduct\" />
-    <Folder Include="Products\Queries\GetProduct\" />
+    <Folder Include="ProductSales\Commands\DeleteProductSale\" />
+    <Folder Include="ProductSales\Commands\UpdateProductSale\" />
   </ItemGroup>
 
 </Project>

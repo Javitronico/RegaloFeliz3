@@ -16,16 +16,15 @@ public class UpdateProductCommandHandler : IRequestHandler<UpdateProductCommand,
 
     public async Task<UpdateProductDto> Handle(UpdateProductCommand request, CancellationToken cancellationToken)
     {
-        var searchedProduct = await _dbContext.Products.Where(x => x.Id == request.Id).FirstOrDefaultAsync();
+        var product = await _dbContext.Products.Where(x => x.Id == request.Id).FirstOrDefaultAsync();
 
-        if (searchedProduct == null) return null;
+        if (product == null) return default;
 
-        searchedProduct.Name= request.Name;
+        product.Name = request.Name;
 
-        //var product = request.UpdateProduct();
-        _dbContext.Products.Update(searchedProduct);
+        _dbContext.Products.Update(product);
         await _dbContext.SaveChangesAsync();
 
-        return new UpdateProductDto(searchedProduct.Id, searchedProduct.Name);
+        return new UpdateProductDto(product.Id, product.Name);
     }
 }

@@ -11,6 +11,6 @@
 
         public long Id { get; set; }
         public DateTime SaleDate { get; set; } = DateTime.Now;
-        public float TotalAmount { get; set; } = 0;
+        public float TotalAmount { get; set; }
     }
 }

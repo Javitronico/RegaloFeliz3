@@ -9,6 +9,7 @@ namespace RegaloFeliz.Application.Sales.Queries.GetSale
         {
             return new GetSaleDto
             {
+                Id= sale.Id,
                 SaleDate = sale.SaleDate,
                 TotalAmount = sale.TotalAmount
             };

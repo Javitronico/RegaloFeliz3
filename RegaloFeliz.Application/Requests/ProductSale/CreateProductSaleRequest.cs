@@ -1,14 +1,10 @@
-﻿using RegaloFeliz.Domain.Entities;
-
-namespace RegaloFeliz.Application.DTOs.Requests.ProductSale
+﻿namespace RegaloFeliz.Application.Requests.ProductSale
 {
     public class CreateProductSaleRequest
     {
-        public Sale? Sale { get; set; }
+        public DateTime SaleDate { get; set; }
 
-        public Product? Product { get; set; }
-
-        public float Price { get; set; }
+        public float TotalAmoung { get; set; }
 
     }
 }

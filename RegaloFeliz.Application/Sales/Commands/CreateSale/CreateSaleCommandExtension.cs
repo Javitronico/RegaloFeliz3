@@ -2,7 +2,7 @@
 
 namespace RegaloFeliz.Application.Sales.Commands.CreateSale
 {
-    public static class CreateSaleCommandExtensions
+    public static class CreateSaleCommandExtension
     {
         public static Sale CreateSale(this CreateSaleCommand command)
         {

@@ -1,13 +1,11 @@
 ﻿using MediatR;
-using Microsoft.EntityFrameworkCore;
-using RegaloFeliz.Domain.DTOs.Responses.Product;
+using RegaloFeliz.Application.Responses.Product;
 using RegaloFeliz.Domain.Entities;
 
 namespace RegaloFeliz.Application.Products.Commands.DeleteProduct
 {
     public class DeleteProductCommandHandler : IRequestHandler<DeleteProductCommand, DeleteProductDto>
     {
-
         private readonly ApplicationDbContext _dbContext;
 
         public DeleteProductCommandHandler(ApplicationDbContext dbContext)
@@ -19,7 +17,7 @@ namespace RegaloFeliz.Application.Products.Commands.DeleteProduct
         {
             var product = new Product()
             {
-                Id = request.Id.Value
+                Id = request.Id
             };
             _dbContext.Products.Remove(product);
             await _dbContext.SaveChangesAsync();

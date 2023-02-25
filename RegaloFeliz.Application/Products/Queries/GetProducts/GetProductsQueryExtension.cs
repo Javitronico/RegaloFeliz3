@@ -3,16 +3,15 @@ using RegaloFeliz.Domain.Entities;
 
 namespace RegaloFeliz.Application.Products.Queries.GetProducts
 {
-    public static class GetProductsQueryExtensions
+    public static class GetProductsQueryExtension
     {
-        public static GetProductDto MapTo(this Product dto)
+        public static GetProductDto MapTo(this Product product)
         {
             return new GetProductDto
             {
-                Id = dto.Id,
-                Name = dto.Name
+                Id = product.Id,
+                Name = product.Name
             };
         }
-
     }
 }
