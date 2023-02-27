@@ -1,12 +1,11 @@
-﻿namespace RegaloFeliz.Application.Responses.Sale
+﻿namespace RegaloFeliz.Application.Responses
 {
     public class DeleteSaleDto
     {
-        public DeleteSaleDto(long id)
+        public Guid Id { get; set; }
+        public DeleteSaleDto(Guid id)
         {
             Id = id;
         }
-
-        public long Id { get; set; }
     }
 }

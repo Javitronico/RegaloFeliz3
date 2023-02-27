@@ -1,30 +1,32 @@
 ﻿using MediatR;
 using Microsoft.EntityFrameworkCore;
-using RegaloFeliz.Application.Responses.Product;
+using RegaloFeliz.Application.Responses;
 
-namespace RegaloFeliz.Application.Products.Commands.UpdateProduct;
-
-public class UpdateProductCommandHandler : IRequestHandler<UpdateProductCommand, UpdateProductDto>
+namespace RegaloFeliz.Application.Products.Commands.UpdateProduct
 {
 
-    private readonly ApplicationDbContext _dbContext;
-
-    public UpdateProductCommandHandler(ApplicationDbContext dbContext)
+    public class UpdateProductCommandHandler : IRequestHandler<UpdateProductCommand, UpdateProductDto>
     {
-        _dbContext = dbContext;
-    }
 
-    public async Task<UpdateProductDto> Handle(UpdateProductCommand request, CancellationToken cancellationToken)
-    {
-        var product = await _dbContext.Products.Where(x => x.Id == request.Id).FirstOrDefaultAsync();
+        private readonly ApplicationDbContext _dbContext;
 
-        if (product == null) return default;
+        public UpdateProductCommandHandler(ApplicationDbContext dbContext)
+        {
+            _dbContext = dbContext;
+        }
 
-        product.Name = request.Name;
+        public async Task<UpdateProductDto> Handle(UpdateProductCommand request, CancellationToken cancellationToken)
+        {
+            var product = await _dbContext.Products.Where(x => x.Id == request.Id).FirstOrDefaultAsync();
 
-        _dbContext.Products.Update(product);
-        await _dbContext.SaveChangesAsync();
+            if (product == null) return default;
 
-        return new UpdateProductDto(product.Id, product.Name);
+            product.Name = request.Name;
+
+            _dbContext.Products.Update(product);
+            await _dbContext.SaveChangesAsync();
+
+            return new UpdateProductDto(product.Id, product.Name);
+        }
     }
 }

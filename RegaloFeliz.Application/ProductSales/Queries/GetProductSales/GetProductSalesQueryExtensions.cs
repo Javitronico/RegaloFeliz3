@@ -1,12 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using RegaloFeliz.Application.Responses;
+using RegaloFeliz.Domain.Entities;
 
 namespace RegaloFeliz.Application.ProductSales.Queries.GetProductSales
 {
-    internal class GetProductSalesQueryExtensions
+    public static class GetProductSalesQueryExtensions
     {
+        public static GetProductSaleDto MapTo(this ProductSale productSale)
+        {
+            return new GetProductSaleDto
+            {
+                Id = productSale.Id,
+                ProductId = productSale.ProductId,
+                SaleId = productSale.SaleId,
+                Price = productSale.Price
+            };
+        }
     }
 }

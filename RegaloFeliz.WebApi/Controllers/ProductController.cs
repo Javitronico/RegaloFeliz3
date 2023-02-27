@@ -5,7 +5,7 @@ using RegaloFeliz.Application.Products.Commands.DeleteProduct;
 using RegaloFeliz.Application.Products.Commands.UpdateProduct;
 using RegaloFeliz.Application.Products.Queries.GetProduct;
 using RegaloFeliz.Application.Products.Queries.GetProducts;
-using RegaloFeliz.Application.Requests.Product;
+using RegaloFeliz.Application.Requests;
 
 namespace RegaloFeliz.WebApi.Controllers
 {
@@ -25,19 +25,25 @@ namespace RegaloFeliz.WebApi.Controllers
         {
             var products = await _mediator.Send(new GetProductsQuery());
 
-            if (products == null) return NotFound("No products in database. Please add a product first."); ;
+            if (products == null)
+            {
+                return StatusCode(StatusCodes.Status204NoContent, "No products in database.");
+            }
 
-            return Ok(products);
+            return StatusCode(StatusCodes.Status200OK, products);
         }
 
         [HttpGet("/GetProductById/{id}")]
-        public async Task<IActionResult> GetProduct(long id)
+        public async Task<IActionResult> GetProduct(Guid id)
         {
             var product = await _mediator.Send(new GetProductQuery(id));
 
-            if (product == null) return NotFound($"No product in database with ID: {id}.");
+            if (product == null)
+            {
+                return StatusCode(StatusCodes.Status204NoContent, $"No product found for id: {id}.");
+            }
 
-            return Ok(product);
+            return StatusCode(StatusCodes.Status200OK, product);
         }
 
         [HttpPost("/CreateProduct")]
@@ -45,15 +51,12 @@ namespace RegaloFeliz.WebApi.Controllers
         {
             var product = await _mediator.Send(new CreateProductCommand(request.Name));
 
-            return Ok(product);
-        }
+            if (product == null)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, $"{request.Name} could not be created.");
+            }
 
-        [HttpDelete("/DeleteProductById/{id}")]
-        public async Task<IActionResult> DeleteProduct(long id)
-        {
-            var product = await _mediator.Send(new DeleteProductCommand(id));
-
-            return Ok(product);
+            return CreatedAtAction("CreateProduct", product);
         }
 
         [HttpPut("/UpdateProduct")]
@@ -61,9 +64,25 @@ namespace RegaloFeliz.WebApi.Controllers
         {
             var product = await _mediator.Send(new UpdateProductCommand(request.Id, request.Name));
 
-            return Ok(product);
+            if (product == null)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, $"{request.Id} could not be updated.");
+            }
+
+            return NoContent();
         }
 
+        [HttpDelete("/DeleteProductById/{id}")]
+        public async Task<IActionResult> DeleteProduct(Guid id)
+        {
+            var product = await _mediator.Send(new DeleteProductCommand(id));
 
+            if (product == null)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, $"{id} could not be deleted.");
+            }
+
+            return StatusCode(StatusCodes.Status200OK);
+        }
     }
 }

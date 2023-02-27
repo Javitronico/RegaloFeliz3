@@ -1,19 +1,18 @@
-﻿using MediatR;
-using RegaloFeliz.Application.Responses;
+﻿using RegaloFeliz.Application.Responses;
 using RegaloFeliz.Domain.Entities;
 
-namespace RegaloFeliz.Application.Products.Commands.DeleteProduct
+namespace RegaloFeliz.Application.ProductSales.Commands.DeleteProductSale
 {
-    public class DeleteProductCommandHandler : IRequestHandler<DeleteProductCommand, DeleteProductDto>
+    public class DeleteProductSaleCommandHandler
     {
         private readonly ApplicationDbContext _dbContext;
 
-        public DeleteProductCommandHandler(ApplicationDbContext dbContext)
+        public DeleteProductSaleCommandHandler(ApplicationDbContext dbContext)
         {
             _dbContext = dbContext;
         }
 
-        public async Task<DeleteProductDto> Handle(DeleteProductCommand request, CancellationToken cancellationToken)
+        public async Task<DeleteProductDto> Handle(DeleteProductSaleCommand request, CancellationToken cancellationToken)
         {
             var product = new Product()
             {

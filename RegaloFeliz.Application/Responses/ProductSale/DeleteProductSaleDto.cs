@@ -1,6 +1,12 @@
-﻿namespace RegaloFeliz.Application.Responses.ProductSale
+﻿namespace RegaloFeliz.Application.Responses
 {
-    internal class DeleteProductSaleDto
+    public class DeleteProductSaleDto
     {
+        public long Id { get; set; }
+
+        public DeleteProductSaleDto(long id)
+        {
+            Id = id;
+        }
     }
 }

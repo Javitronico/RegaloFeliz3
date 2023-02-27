@@ -1,12 +1,12 @@
 ﻿using MediatR;
-using RegaloFeliz.Application.Responses.Sale;
+using RegaloFeliz.Application.Responses;
 
 namespace RegaloFeliz.Application.Sales.Commands.DeleteSale
 {
     public class DeleteSaleCommand : IRequest<DeleteSaleDto>
     {
-        public DeleteSaleCommand(long id) { Id = id; }
+        public DeleteSaleCommand(Guid id) { Id = id; }
 
-        public long Id { get; set; }
+        public Guid Id { get; set; }
     }
 }

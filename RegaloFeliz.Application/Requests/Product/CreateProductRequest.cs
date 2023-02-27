@@ -1,4 +1,4 @@
-﻿namespace RegaloFeliz.Application.Requests.Product
+﻿namespace RegaloFeliz.Application.Requests
 {
     public class CreateProductRequest
     {

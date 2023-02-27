@@ -1,5 +1,5 @@
 ﻿using MediatR;
-using RegaloFeliz.Application.Responses.Sale;
+using RegaloFeliz.Application.Responses;
 
 namespace RegaloFeliz.Application.Sales.Queries.GetSales
 {

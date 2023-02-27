@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using MediatR;
+using RegaloFeliz.Application.Responses;
 
 namespace RegaloFeliz.Application.ProductSales.Queries.GetProductSales
 {
-    internal class GetProductSalesQuery
+    public class GetProductSalesQuery : IRequest<IList<GetProductSaleDto>>
     {
     }
 }

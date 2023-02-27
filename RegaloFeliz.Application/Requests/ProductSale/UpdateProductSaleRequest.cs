@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace RegaloFeliz.Application.Requests.ProductSale
+﻿namespace RegaloFeliz.Application.Requests
 {
-    internal class UpdateProductSaleRequest
+    public class UpdateProductSaleRequest
     {
+        public Guid Id { get; set; }
+        public Guid ProductId { get; set; }
+        public Guid SaleId { get; set; }
+        public float Price { get; set; }
     }
 }

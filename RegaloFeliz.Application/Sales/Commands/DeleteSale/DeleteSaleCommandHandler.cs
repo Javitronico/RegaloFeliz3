@@ -1,5 +1,5 @@
 ﻿using MediatR;
-using RegaloFeliz.Application.Responses.Sale;
+using RegaloFeliz.Application.Responses;
 using RegaloFeliz.Domain.Entities;
 
 namespace RegaloFeliz.Application.Sales.Commands.DeleteSale
@@ -15,10 +15,8 @@ namespace RegaloFeliz.Application.Sales.Commands.DeleteSale
 
         public async Task<DeleteSaleDto> Handle(DeleteSaleCommand request, CancellationToken cancellationToken)
         {
-            var sale = new Sale()
-            {
-                Id = request.Id
-            };
+            var sale = new Sale(){Id = request.Id};
+
             _dbContext.Sales.Remove(sale);
             await _dbContext.SaveChangesAsync();
 

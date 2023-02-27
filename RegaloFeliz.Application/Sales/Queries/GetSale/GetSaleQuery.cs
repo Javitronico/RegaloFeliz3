@@ -1,16 +1,15 @@
 ﻿using MediatR;
-using RegaloFeliz.Application.Responses.Product;
-using RegaloFeliz.Application.Responses.Sale;
+using RegaloFeliz.Application.Responses;
 
 namespace RegaloFeliz.Application.Sales.Queries.GetSale
 {
     public class GetSaleQuery : IRequest<GetSaleDto>
     {
-        public GetSaleQuery(long id)
+        public GetSaleQuery(Guid id)
         {
             Id = id;
         }
 
-        public long Id { get; set; }
+        public Guid Id { get; set; }
     }
 }

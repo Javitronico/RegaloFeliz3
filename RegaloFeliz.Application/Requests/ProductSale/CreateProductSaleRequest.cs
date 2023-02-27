@@ -1,10 +1,10 @@
-﻿namespace RegaloFeliz.Application.Requests.ProductSale
+﻿namespace RegaloFeliz.Application.Requests
 {
     public class CreateProductSaleRequest
     {
-        public DateTime SaleDate { get; set; }
-
-        public float TotalAmoung { get; set; }
+        public Guid ProductId { get; set; }
+        public Guid SaleId { get; set; }
+        public float Price { get; set; }
 
     }
 }

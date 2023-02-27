@@ -1,4 +1,4 @@
-﻿namespace RegaloFeliz.Application.Requests.Sale
+﻿namespace RegaloFeliz.Application.Requests
 {
     public class DeleteSaleRequest
     {

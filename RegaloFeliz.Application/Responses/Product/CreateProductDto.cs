@@ -1,12 +1,12 @@
-﻿namespace RegaloFeliz.Application.Responses.Product
+﻿namespace RegaloFeliz.Application.Responses
 {
     public class CreateProductDto
     {
-        public CreateProductDto(long id)
+        public CreateProductDto(Guid id)
         {
             Id = id;
         }
 
-        public long Id { get; set; }
+        public Guid Id { get; set; }
     }
 }

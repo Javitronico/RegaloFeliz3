@@ -1,8 +1,8 @@
-﻿namespace RegaloFeliz.Application.Responses.Product
+﻿namespace RegaloFeliz.Application.Responses
 {
     public class GetProductDto
     {
-        public long Id { get; set; }
+        public Guid Id { get; set; }
         public string Name { get; set; }
     }
 }

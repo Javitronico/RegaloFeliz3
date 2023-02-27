@@ -1,12 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using RegaloFeliz.Application.Commands.CreateProductSale;
+using RegaloFeliz.Domain.Entities;
 
 namespace RegaloFeliz.Application.ProductSales.Commands.CreateProductSale
 {
-    internal class CreateProductSaleCommandExtension
+    public static class CreateProductSaleCommandExtension
     {
+        public static ProductSale CreateProductSale(this CreateProductSaleCommand command)
+        {
+            var productSale = new ProductSale
+            {
+                ProductId = command.ProductId,
+                SaleId = command.SaleId,
+                Price = command.Price
+            };
+
+            return productSale;
+        }
     }
 }

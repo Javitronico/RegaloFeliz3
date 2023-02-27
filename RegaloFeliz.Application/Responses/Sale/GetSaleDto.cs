@@ -1,8 +1,8 @@
-﻿namespace RegaloFeliz.Application.Responses.Sale
+﻿namespace RegaloFeliz.Application.Responses
 {
     public class GetSaleDto
     {
-        public long Id { get; set; }
+        public Guid Id { get; set; }
         public DateTime SaleDate { get; set; }
         public float TotalAmount { get; set; }
     }

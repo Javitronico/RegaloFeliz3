@@ -1,8 +1,8 @@
-﻿namespace RegaloFeliz.Application.Requests.Sale
+﻿namespace RegaloFeliz.Application.Requests
 {
     public class UpdateSaleRequest
     {
-        public long Id { get; set; }
+        public Guid Id { get; set; }
 
         public DateTime SaleDate { get; set; }
 

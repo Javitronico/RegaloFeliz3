@@ -1,11 +1,10 @@
 ﻿using MediatR;
-using RegaloFeliz.Application.Responses.Product;
+using RegaloFeliz.Application.Responses;
 
 namespace RegaloFeliz.Application.Products.Commands.CreateProduct
 {
     public class UpdateProductCommandHandler : IRequestHandler<CreateProductCommand, CreateProductDto>
     {
-
         private readonly ApplicationDbContext _dbContext;
 
         public UpdateProductCommandHandler(ApplicationDbContext dbContext)

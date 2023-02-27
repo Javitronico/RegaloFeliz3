@@ -1,16 +1,18 @@
 ﻿using MediatR;
-using RegaloFeliz.Application.Responses.Product;
+using RegaloFeliz.Application.Responses;
 
-namespace RegaloFeliz.Application.Products.Commands.UpdateProduct;
+namespace RegaloFeliz.Application.Products.Commands.UpdateProduct
 
-public class UpdateProductCommand : IRequest<UpdateProductDto>
 {
-    public UpdateProductCommand(long id, string name)
+    public class UpdateProductCommand : IRequest<UpdateProductDto>
     {
-        Id = id;
-        Name = name;
-    }
-    public long Id { get; internal set; }
+        public UpdateProductCommand(Guid id, string name)
+        {
+            Id = id;
+            Name = name;
+        }
+        public Guid Id { get; internal set; }
 
-    public string Name { get; set; }
+        public string Name { get; set; }
+    }
 }

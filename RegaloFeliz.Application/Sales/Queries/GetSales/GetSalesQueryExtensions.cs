@@ -1,4 +1,4 @@
-﻿using RegaloFeliz.Application.Responses.Sale;
+﻿using RegaloFeliz.Application.Responses;
 using RegaloFeliz.Domain.Entities;
 
 namespace RegaloFeliz.Application.Sales.Queries.GetSales

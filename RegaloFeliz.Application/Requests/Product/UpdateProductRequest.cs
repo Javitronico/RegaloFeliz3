@@ -1,8 +1,8 @@
-﻿namespace RegaloFeliz.Application.Requests.Product
+﻿namespace RegaloFeliz.Application.Requests
 {
     public class UpdateProductRequest
     {
-        public long Id { get; set; }
+        public Guid Id { get; set; }
         public string Name { get; set; }
     }
 }

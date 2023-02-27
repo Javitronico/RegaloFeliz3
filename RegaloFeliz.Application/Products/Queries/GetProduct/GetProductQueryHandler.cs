@@ -1,6 +1,6 @@
 ﻿using MediatR;
 using Microsoft.EntityFrameworkCore;
-using RegaloFeliz.Application.Responses.Product;
+using RegaloFeliz.Application.Responses;
 
 namespace RegaloFeliz.Application.Products.Queries.GetProduct
 {

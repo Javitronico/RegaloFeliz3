@@ -2,7 +2,7 @@
 {
     public static class DeleteSaleCommandExtensions
     {
-        public static long DeleteSale(this DeleteSaleCommand command)
+        public static Guid DeleteSale(this DeleteSaleCommand command)
         {
             return command.Id;
         }

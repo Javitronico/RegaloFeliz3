@@ -1,5 +1,5 @@
 ﻿using MediatR;
-using RegaloFeliz.Application.Responses.Product;
+using RegaloFeliz.Application.Responses;
 
 namespace RegaloFeliz.Application.Products.Commands.CreateProduct
 {

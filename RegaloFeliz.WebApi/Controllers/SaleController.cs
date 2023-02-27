@@ -1,6 +1,6 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using RegaloFeliz.Application.Requests.Sale;
+using RegaloFeliz.Application.Requests;
 using RegaloFeliz.Application.Sales.Commands.CreateSale;
 using RegaloFeliz.Application.Sales.Commands.DeleteSale;
 using RegaloFeliz.Application.Sales.Commands.UpdateSale;
@@ -32,7 +32,7 @@ namespace RegaloFeliz.WebApi.Controllers
         }
 
         [HttpGet("/GetSaleById/{id}")]
-        public async Task<IActionResult> GetSale(long id)
+        public async Task<IActionResult> GetSale(Guid id)
         {
             var sale = await _mediator.Send(new GetSaleQuery(id));
 
@@ -50,7 +50,7 @@ namespace RegaloFeliz.WebApi.Controllers
         }
 
         [HttpDelete("/DeleteSaleById/{id}")]
-        public async Task<IActionResult> DeleteSale(long id)
+        public async Task<IActionResult> DeleteSale(Guid id)
         {
             var sale = await _mediator.Send(new DeleteSaleCommand(id));
 
