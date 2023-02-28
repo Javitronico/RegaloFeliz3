@@ -20,8 +20,8 @@ namespace RegaloFeliz.Application.ProductSales.Commands.UpdateProductSale
 
             if (productSale == null) return default;
 
-            productSale.ProductId= request.Id;
-            productSale.SaleId= request.Id;
+            productSale.ProductId= request.ProductId;
+            productSale.SaleId= request.SaleId;
             productSale.Price= request.Price;
 
             _dbContext.ProductSales.Update(productSale);

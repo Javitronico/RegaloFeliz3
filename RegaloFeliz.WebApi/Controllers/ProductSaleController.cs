@@ -59,9 +59,9 @@ namespace RegaloFeliz.WebApi.Controllers
         [HttpPut("/UpdateProductSale")]
         public async Task<IActionResult> UpdateProductSale([FromBody] UpdateProductSaleRequest request)
         {
-            var product = await _mediator.Send(new UpdateProductSaleCommand(request.Id, request.ProductId, request.SaleId, request.Price));
+            var productSale = await _mediator.Send(new UpdateProductSaleCommand(request.Id, request.ProductId, request.SaleId, request.Price));
 
-            if (product == null)
+            if (productSale == null)
             {
                 return StatusCode(StatusCodes.Status500InternalServerError, $"{request.Id} could not be updated.");
             }

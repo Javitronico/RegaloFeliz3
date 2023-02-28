@@ -2,9 +2,9 @@
 {
     public class DeleteProductSaleDto
     {
-        public long Id { get; set; }
+        public Guid Id { get; set; }
 
-        public DeleteProductSaleDto(long id)
+        public DeleteProductSaleDto(Guid id)
         {
             Id = id;
         }

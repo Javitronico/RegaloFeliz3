@@ -1,9 +1,10 @@
-﻿using RegaloFeliz.Application.Responses;
+﻿using MediatR;
+using RegaloFeliz.Application.Responses;
 using RegaloFeliz.Domain.Entities;
 
 namespace RegaloFeliz.Application.ProductSales.Commands.DeleteProductSale
 {
-    public class DeleteProductSaleCommandHandler
+    public class DeleteProductSaleCommandHandler : IRequestHandler<DeleteProductSaleCommand, DeleteProductSaleDto>
     {
         private readonly ApplicationDbContext _dbContext;
 
@@ -12,16 +13,16 @@ namespace RegaloFeliz.Application.ProductSales.Commands.DeleteProductSale
             _dbContext = dbContext;
         }
 
-        public async Task<DeleteProductDto> Handle(DeleteProductSaleCommand request, CancellationToken cancellationToken)
+        public async Task<DeleteProductSaleDto> Handle(DeleteProductSaleCommand request, CancellationToken cancellationToken)
         {
-            var product = new Product()
+            var productSale = new ProductSale()
             {
                 Id = request.Id
             };
-            _dbContext.Products.Remove(product);
+            _dbContext.ProductSales.Remove(productSale);
             await _dbContext.SaveChangesAsync();
 
-            return new DeleteProductDto(product.Id);
+            return new DeleteProductSaleDto(productSale.Id);
         }
     }
 }
