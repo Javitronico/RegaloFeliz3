@@ -44,7 +44,7 @@ namespace RegaloFeliz.WebApi.Controllers
         [HttpPost("/CreateSale")]
         public async Task<ActionResult> CreateSale([FromBody] CreateSaleRequest request)
         {
-            var sale = await _mediator.Send(new CreateSaleCommand(request.SaleDate, request.TotalAmount));
+            var sale = await _mediator.Send(new CreateSaleCommand(request.SaleDate, request.ProductId, request.TotalAmount));
 
             return Ok(sale);
         }
@@ -63,6 +63,7 @@ namespace RegaloFeliz.WebApi.Controllers
             var sale = await _mediator.Send(new UpdateSaleCommand(
                 request.Id,
                 request.SaleDate,
+                request.ProductId,
                 request.TotalAmount));
 
             return Ok(sale);

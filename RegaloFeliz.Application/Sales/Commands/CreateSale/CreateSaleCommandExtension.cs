@@ -7,7 +7,7 @@ namespace RegaloFeliz.Application.Sales.Commands.CreateSale
         public static Sale CreateSale(this CreateSaleCommand command)
         {
             Sale sale =
-                new Sale { SaleDate = command.SaleDate, TotalAmount = command.TotalAmount };
+                new Sale { SaleDate = command.SaleDate, ProductId = command.ProductId, TotalAmount = command.TotalAmount };
 
             return sale;
         }

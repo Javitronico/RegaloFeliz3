@@ -11,7 +11,8 @@ namespace RegaloFeliz.Application.Sales.Queries.GetSales
             {
                 Id= sale.Id,
                 SaleDate = sale.SaleDate,
-                TotalAmount = sale.TotalAmount
+                TotalAmount = sale.TotalAmount,
+                ProductId= sale.ProductId,
             };
         }
     }

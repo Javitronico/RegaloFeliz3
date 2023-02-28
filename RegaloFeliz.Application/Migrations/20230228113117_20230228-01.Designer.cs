@@ -12,8 +12,8 @@ using RegaloFeliz.Application;
 namespace RegaloFeliz.Application.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230226205028_20230226-01")]
-    partial class _2023022601
+    [Migration("20230228113117_20230228-01")]
+    partial class _2023022801
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -94,7 +94,7 @@ namespace RegaloFeliz.Application.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid?>("ProductId")
+                    b.Property<Guid>("ProductId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("SaleDate")
@@ -114,21 +114,21 @@ namespace RegaloFeliz.Application.Migrations
                         {
                             Id = new Guid("98474b8e-d713-401e-8aee-acb7353f97bb"),
                             ProductId = new Guid("90d10994-3bdd-4ca2-a178-6a35fd653c59"),
-                            SaleDate = new DateTime(2023, 2, 16, 21, 50, 28, 841, DateTimeKind.Local).AddTicks(4346),
+                            SaleDate = new DateTime(2023, 2, 18, 12, 31, 17, 245, DateTimeKind.Local).AddTicks(1852),
                             TotalAmount = 100f
                         },
                         new
                         {
                             Id = new Guid("bfe902af-3cf0-4a1c-8a83-66be60b028ba"),
                             ProductId = new Guid("90d10994-3bdd-4ca2-a178-6a35fd653c59"),
-                            SaleDate = new DateTime(2023, 2, 6, 21, 50, 28, 841, DateTimeKind.Local).AddTicks(4403),
+                            SaleDate = new DateTime(2023, 2, 8, 12, 31, 17, 245, DateTimeKind.Local).AddTicks(1907),
                             TotalAmount = 200f
                         },
                         new
                         {
                             Id = new Guid("150c81c6-2458-466e-907a-2df11325e2b8"),
                             ProductId = new Guid("6ebc3dbe-2e7b-4132-8c33-e089d47694cd"),
-                            SaleDate = new DateTime(2023, 1, 27, 21, 50, 28, 841, DateTimeKind.Local).AddTicks(4466),
+                            SaleDate = new DateTime(2023, 1, 29, 12, 31, 17, 245, DateTimeKind.Local).AddTicks(1912),
                             TotalAmount = 300f
                         });
                 });
@@ -137,7 +137,9 @@ namespace RegaloFeliz.Application.Migrations
                 {
                     b.HasOne("RegaloFeliz.Domain.Entities.Product", "Product")
                         .WithMany("Sales")
-                        .HasForeignKey("ProductId");
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Product");
                 });

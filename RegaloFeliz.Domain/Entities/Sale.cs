@@ -10,7 +10,7 @@ namespace RegaloFeliz.Domain.Entities
         public float TotalAmount { get; set; }
 
         // One-to-many relation with products
-        public Guid? ProductId { get; set; }
+        public Guid ProductId { get; set; }
         public Product? Product { get; set; }
 
     }

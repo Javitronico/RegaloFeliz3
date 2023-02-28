@@ -22,6 +22,7 @@ namespace RegaloFeliz.Application.ProductSales.Commands.UpdateProductSale
 
             productSale.ProductId= request.Id;
             productSale.SaleId= request.Id;
+            productSale.Price= request.Price;
 
             _dbContext.ProductSales.Update(productSale);
             await _dbContext.SaveChangesAsync();

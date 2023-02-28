@@ -3,9 +3,8 @@
     public class UpdateSaleRequest
     {
         public Guid Id { get; set; }
-
         public DateTime SaleDate { get; set; }
-
+        public Guid ProductId { get; set; }
         public float TotalAmount { get; set; }
 
     }
